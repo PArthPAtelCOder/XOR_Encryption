@@ -43,10 +43,10 @@ int main(void)
         case 1:
         {
             printf ( "\nEnter the name of the file to be Encryted : " ) ;
-            scanf("%[^\n]s",inputFile);
+            scanf("\n%[^\n]s",inputFile);
 
             printf ( "\nEnter the name of the file output file in which Encrypted data will be stored: " ) ;
-            scanf("%[^\n]s",outputFile);
+            scanf("\n%[^\n]s",outputFile);
 
             inputFileptr = fopen ( inputFile, "rb");
             outputFileptr = fopen ( outputFile, "wb");
@@ -58,8 +58,8 @@ int main(void)
             }
 
             printf( "\nEnter Password ( Length must be <= %d ) : ", PASSWORD_MAX_LENGTH ) ;
-
-            fgets(password, PASSWORD_MAX_LENGTH+1, stdin);
+            scanf("\n%[^\n]s",password);
+            //fgets(password, PASSWORD_MAX_LENGTH+1, stdin);
             passwordLen = strlen ( password ) ;
 
             modifyPassword( password, SecretKey1, SecretKey2, passwordLen);
@@ -72,12 +72,10 @@ int main(void)
         case 2:
         {
             printf ( "\nEnter the name of the file to be Decrypted : " ) ;
-            fflush(stdin);
-            scanf("%[^\n]s",inputFile);
+            scanf("\n%[^\n]s",inputFile);
 
             printf ( "\nEnter the name of the output file in which decrypted text will be stored : " ) ;
-            fflush(stdin);
-            scanf("%[^\n]s",outputFile);
+            scanf("\n%[^\n]s",outputFile);
 
             inputFileptr = fopen ( inputFile, "rb");
             outputFileptr = fopen ( outputFile, "wb");
@@ -89,8 +87,8 @@ int main(void)
             }
 
             printf( "\n Enter Password ( Length msut be <= %d ) : ", PASSWORD_MAX_LENGTH ) ;
-            fflush(stdin);
-            fgets(password, PASSWORD_MAX_LENGTH+1, stdin);
+            scanf("\n%[^\n]s",password);
+            //fgets(password, PASSWORD_MAX_LENGTH+1, stdin);
             passwordLen = strlen ( password ) ;
             //changing password such that decryption becomes case sensitive
             //and changing even one character of password will fail in decrypting
